@@ -86,14 +86,15 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 10px;
+            padding: 0px;
             text-align: center;
         }
 
       .category.expanded {
-    transform: scale(1.8); /* Expande al 80% más grande */
+    transform: scale(1.6); /* Expande al 80% más grande */
     z-index: 10; /* Asegura que el elemento expandido esté al frente */
-     
+     margin:0px;
+     padding:0px;
            
     
 }
@@ -103,6 +104,10 @@
 
         .category.expanded .details {
             display: flex;
+            padding:none;
+        }
+        .price{
+            color:cyan;
         }
         footer {
             display:flex;
@@ -126,38 +131,38 @@
         <div class="category" style="background-image: url('conos.jpg') ; background-size: cover; border-radius: 20px;" data-name="Conos">
             <h2>Conos</h2>
             <div class="details">
-                <p>Calugon:       $6,800</p>
-                <p>Calugon/papas: $8,000</p>
-                <p>Calugon/Jaiba: $6,500</p>
-            </div>
+  </br>
+  <p>Calugon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp: <span class="price">$ 6,500</span></p></br>
+  <p>Calugon/papas: <span class="price">$ 6,500</span></p></br>
+  <p>Calugon/Jaiba&nbsp;: <span class="price">$ 9,500</span></p></br>
+</div>
         </div>
 
         <div class="category" style="background-image: url('ceviche.png') ; background-size: cover;" data-name="Ceviches">
             <h2>Ceviches</h2>
             <div class="details">
-                <p>Reineta:        $4,000</p>
-                <p>Salmón:         $5,500</p>
-                <p>Reineta/camarón:$7,000</p>
-            </div>
-        </div>
+    <p>Reineta&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span class="price">$ 5,000</span></p></br>
+    <p>Salmón&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span class="price">$ 7,500</span></p></br>
+    <p>Reineta/camarón: <span class="price">$ 7,500</span></p>
+</div> </div>
 
         <div class="category" style="background-image: url('empanadas.png') ; background-size: 120% 120% ; " data-name="Empanadas">
             <h2>Empanadas</h2>
-            <div class="details">
-                <p>Chupe Jaiba:    $4,000</p>
-                <p>Camarón/queso:  $3,500</p>
-                <p>Mariscos:       $3,000</p>
-                <p>Queso:          $2,000</p>
-            </div>
+           <div class="details">
+    <p>Chupe Jaiba&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span class="price">$ 4,000</span></p></br>
+    <p>Camarón/queso&nbsp;&nbsp;&nbsp;: <span class="price">$ 3,500</span></p></br>
+    <p>Mariscos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span class="price">$ 3,500</span></p></br>
+    <p>Queso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span class="price">$ 3,500</span></p>
+</div>
         </div>
     
 <div class="category" style="background-image: url('pleto.png') ; background-size: cover; " data-name="Calugapletos">
             <h2>Calugapletos</h2>
-            <div class="details">
-                <p>Calugapleto:    $3,000</p>
-                <p>+ Papas O Caldo $5,000<p>
-                <p>+ Papas & Caldo $6,500<p>
-            </div>
+           <div class="details">
+    <p>Calugapleto&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span class="price">$ 3,000</span></p></br>
+    <p>+ Papas O Caldo&nbsp;&nbsp;&nbsp;: <span class="price">$ 5,000</span></p></br>
+    <p>+ Papas & Caldo&nbsp;&nbsp;&nbsp;: <span class="price">$ 6,500</span></p>
+</div>
         </div>
     </section>
 
