@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú PEZ Calugon</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            width: 100%;
+            height: 20%;
+            align-items: center;
+            background-color: #2f7d8f;
+        }
+
+        .logo {
+            display: flex;
+            margin: 0 auto;
+            margin-top: -60px;
+            width: 300px;
+            height: 250px;
+            background-image: url("logo.png");
+            background-size: 100% 150%;
+            background-position: center;
+            background-repeat: no-repeat;
+            align-items: flex-end;
+        }
+
+        p {
+            margin: 0 auto;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        .category {
+            position: relative;
+            background-size: contain;
+            background-repeat:no-repeat;
+            background-position: center;
+            border-radius: 10px;
+            margin: 10px;
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .category h2 {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 30px;
+            text-align: center;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            transition: opacity 0.3s ease;
+        }
+
+        .category .details {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            text-align: center;
+        }
+
+      .category.expanded {
+    transform: scale(1.8); /* Expande al 80% más grande */
+    z-index: 10; /* Asegura que el elemento expandido esté al frente */
+     
+           
+    
+}
+        .category.expanded h2 {
+            opacity: 0;
+        }
+
+        .category.expanded .details {
+            display: flex;
+        }
+        footer {
+            display:flex;
+            background-color: #2f7d8f;
+            align-items:center;
+            height:100px;
+        }
+        footer p {
+            left: 50%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <p>Descubre nuestros deliciosos productos</p>
+        </div>
+    </header>
+    
+    <section class="menu">
+        <div class="category" style="background-image: url('conos.jpg') ; background-size: cover; border-radius: 20px;" data-name="Conos">
+            <h2>Conos</h2>
+            <div class="details">
+                <p>Calugon:       $6,800</p>
+                <p>Calugon/papas: $8,000</p>
+                <p>Calugon/Jaiba: $6,500</p>
+            </div>
+        </div>
+
+        <div class="category" style="background-image: url('ceviche.png') ; background-size: cover;" data-name="Ceviches">
+            <h2>Ceviches</h2>
+            <div class="details">
+                <p>Reineta:        $4,000</p>
+                <p>Salmón:         $5,500</p>
+                <p>Reineta/camarón:$7,000</p>
+            </div>
+        </div>
+
+        <div class="category" style="background-image: url('empanadas.png') ; background-size: 120% 120% ; " data-name="Empanadas">
+            <h2>Empanadas</h2>
+            <div class="details">
+                <p>Chupe Jaiba:    $4,000</p>
+                <p>Camarón/queso:  $3,500</p>
+                <p>Mariscos:       $3,000</p>
+                <p>Queso:          $2,000</p>
+            </div>
+        </div>
+    
+<div class="category" style="background-image: url('pleto.png') ; background-size: cover; " data-name="Calugapletos">
+            <h2>Calugapletos</h2>
+            <div class="details">
+                <p>Calugapleto:    $3,000</p>
+                <p>+ Papas O Caldo $5,000<p>
+                <p>+ Papas & Caldo $6,500<p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Pez Calugon &copy; 2024</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const categories = document.querySelectorAll('.category');
+
+            categories.forEach(category => {
+                category.addEventListener('click', () => {
+                    // Si otra categoría está expandida, la cerramos
+                    const expanded = document.querySelector('.category.expanded');
+                    if (expanded && expanded !== category) {
+                        expanded.classList.remove('expanded');
+                    }
+
+                    // Expandimos o contraemos la categoría actual
+                    category.classList.toggle('expanded');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
