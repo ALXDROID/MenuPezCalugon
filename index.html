@@ -133,6 +133,35 @@ url('fondo.jpg') no-repeat center center fixed;
             width:50px;
             height:50px;
         }
+        /* Estilo para el video */
+    #video-container {
+        display: none; /* Oculto por defecto */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000; /* Asegura que el video esté al frente */
+        background: black;
+    }
+
+    #video-container video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Mostrar el video en pantallas anchas */
+    @media screen and (min-width: 880px) {
+        #video-container {
+            display: block; /* Muestra el video */
+        }
+
+        /* Oculta el contenido principal */
+        body > *:not(#video-container) {
+            display: none;
+        }
+    
     </style>
 </head>
 <body>
@@ -185,6 +214,12 @@ url('fondo.jpg') no-repeat center center fixed;
          <p>Síguenos en <a href="https://www.instagram.com/pez_calugon?igsh=YzljYTk1ODg3Zg==" target="_blank" rel="noopener noreferrer"><img src="ig.png" alt=""></a></p> </br>
         <p>Pez Calugon &copy; 2024</p>
     </footer>
+<div id="video-container">
+    <video autoplay loop muted playsinline>
+        <source src="MENUHDWEB.mp4" type="video/mp4">
+        Tu navegador no soporta videos HTML5.
+    </video>
+</div>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -197,12 +232,34 @@ url('fondo.jpg') no-repeat center center fixed;
                     if (expanded && expanded !== category) {
                         expanded.classList.remove('expanded');
                     }
+document.addEventListener("DOMContentLoaded", () => {
+        const videoContainer = document.getElementById("video-container");
+        const video = videoContainer.querySelector("video");
 
+        // Revisa el tamaño de la ventana al cargar
+        if (window.innerWidth >= 880) {
+            video.play();
+        }
+
+        // Ajusta según cambios de tamaño de ventana
+        window.addEventListener("resize", () => {
+            if (window.innerWidth >= 880) {
+                videoContainer.style.display = "block";
+                video.play();
+            } else {
+                videoContainer.style.display = "none";
+                video.pause();
+            }
+        });
+    });
                     // Expandimos o contraemos la categoría actual
                     category.classList.toggle('expanded');
                 });
             });
         });
+
+      
+
 
     </script>
     
