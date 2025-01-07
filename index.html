@@ -35,6 +35,7 @@ url('fondo.jpg') no-repeat center center fixed;
             background-position: center;
             background-repeat: no-repeat;
             align-items: flex-end;
+            padding-bottom:3px;
         }
 
         p {
@@ -85,19 +86,44 @@ url('fondo.jpg') no-repeat center center fixed;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5);
             color: white;
-            display: none;
+            /*display: none;*/
+            opacity:0;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             padding: 0px;
             text-align: center;
         }
+  
+
+   
+  .details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            padding: 10px;
+        }
+            .details p {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin: 5px 0;
+            font-size: 16px;
+            padding: 1px;
+        }
+        .price{
+            color:cyan;
+             font-weight: bold;
+        }
+     
 
       .category.expanded {
     transform: scale(1.6); /* Expande al 80% más grande */
     z-index: 10; /* Asegura que el elemento expandido esté al frente */
-     margin:0px;
-     padding:0px;
+     margin:5px;
+     padding:5px;
            
     
 }
@@ -105,13 +131,14 @@ url('fondo.jpg') no-repeat center center fixed;
             opacity: 0;
         }
 
-        .category.expanded .details {
-            display: flex;
-            padding:none;
-        }
-        .price{
-            color:cyan;
-        }
+      .category.expanded .details{
+    opacity:100%;
+   padding-left : 1px;
+    padding-right : 1px;
+           
+    
+}
+      
         footer {
             display:flex;
             background-color: #2f7d8f;
@@ -119,12 +146,13 @@ url('fondo.jpg') no-repeat center center fixed;
             align-text:center;
             flex-direction:column;
             height:100px;
-            padding-top:0px;
+            padding-top:3px;
+            padding-bottom:3px;
         }
         footer p {
            <!--left: 50%;  -->
            margin:0;
-           font-size:22px; 
+           font-size:18px; 
         }
         footer a {
            color:orange; 
@@ -133,58 +161,111 @@ url('fondo.jpg') no-repeat center center fixed;
             width:50px;
             height:50px;
         }
+        /* Estilo para el video */
+    #video-container {
+        display: none; /* Oculto por defecto */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000; /* Asegura que el video esté al frente */
+        background: black;
+    }
+
+    #video-container video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Mostrar el video en pantallas anchas */
+    @media screen and (min-width: 880px) {
+        #video-container {
+            display: block; /* Muestra el video */
+        }
+
+        /* Oculta el contenido principal */
+        body > *:not(#video-container) {
+            display: none;
+        }
+    
     </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <p>Descubre nuestros deliciosos productos</p>
+            <p style = "text-align: center;">Descubre nuestros deliciosos productos</p>
         </div>
     </header>
-    
     <section class="menu">
         <div class="category" style="background-image: url('conos.jpg') ; background-size: cover; border-radius: 20px;" data-name="Conos">
             <h2>Conos</h2>
-            <div class="details">
-  </br>
-  <p>Calugon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp: <span class="price">$ 6,500</span></p></br>
-  <p>Calugon/papas: <span class="price">$ 6,500</span></p></br>
-  <p>Calugon/Jaiba&nbsp;: <span class="price">$ 9,500</span></p></br>
-</div>
+                <div class="details">
+                   
+                      <p>Calugon <span class="price">$ 6,800</span></p>
+                      <p>Calugon/papas <span class="price">$ 6,800</span></p>
+                      <p>Calugon/Jaiba<span class="price">$ 9,500</span></p>
+                      <p>Calugon Koreano<span class="price">$ 8,000</span></p>
+                      <p style = "font-size : 9px;">(calugon con salsa koreana)</p>
+                      <p>Cono Papas fritas<span class="price">$ 3,990</span></p>
+                      
+                </div>
         </div>
 
         <div class="category" style="background-image: url('ceviche.png') ; background-size: cover;" data-name="Ceviches">
             <h2>Ceviches</h2>
-            <div class="details">
-    <p>Reineta&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span class="price">$ 5,000</span></p></br>
-    <p>Salmón&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span class="price">$ 7,500</span></p></br>
-    <p>Reineta/camarón: <span class="price">$ 7,500</span></p>
-</div> </div>
+                <div class="details">
+                   
+                      <p>Reineta <span class="price">$ 5,500</span></p>
+                      <p>Salmón <span class="price">$ 7,500</span></p>
+                      <p>Reineta/camarón <span class="price">$ 7,990</span></p>
+                      <p>Salmón/camarón <span class="price">$ 9,500</span></p>
+                </div>
+        </div>
 
         <div class="category" style="background-image: url('empanadas.png') ; background-size: 120% 120% ; " data-name="Empanadas">
             <h2>Empanadas</h2>
-           <div class="details">
-    <p>Chupe Jaiba&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span class="price">$ 4,000</span></p></br>
-    <p>Camarón/queso&nbsp;&nbsp;&nbsp;: <span class="price">$ 3,500</span></p></br>
-    <p>Mariscos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span class="price">$ 3,500</span></p></br>
-    <p>Queso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span class="price">$ 3,500</span></p>
-</div>
+                <div class="details">
+                   
+                     <p>ChupeJaiba/queso<span class="price">$ 4,000</span></p>
+                     <p>Camarón/queso <span class="price">$ 3,500</span></p>
+                     <p>Mariscos<span class="price">$ 3,500</span></p>
+                     <p>Gorda Calugona<span class="price">$ 6,500</span></p><p style = "font-size : 9px;">(chupe jaiba, camarón, queso)</p>  <p>Queso <span class="price">$ 3,500</span></p>
+                </div>
         </div>
     
-<div class="category" style="background-image: url('pleto.png') ; background-size: cover; " data-name="Calugapletos">
+        <div class="category" style="background-image: url('pleto.png') ; background-size: cover; " data-name="Calugapletos">
             <h2></h2>
-           <div class="details">
-    <p>Calugapleto&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span class="price">$ 3,000</span></p></br>
-    <p>+ Papas O Caldo&nbsp;&nbsp;&nbsp;: <span class="price">$ 5,000</span></p></br>
-    <p>+ Papas & Caldo&nbsp;&nbsp;&nbsp;: <span class="price">$ 6,500</span></p>
-</div>
+                <div class="details">
+                     <p>Calugapleto<span class="price">$ 3,300</span></p>
+                     <p>con Papas O Caldo <span class="price">$ 5,500</span></p>
+                     <p>con Papas Y Caldo<span class="price">$ 6,800</span></p>
+                </div>
+        </div>
+        <div class="category" style="background-image: url('sandw.png') ; background-size: cover; " data-name="Sándwich de Pez">
+            <h2>Sándwich de Pez</h2>
+                <div class="details">
+                   
+                     <p>Sandwich de Pez<span class="price">$ 5,990</span></p>
+                     <p>con Papas fritas  <span class="price">$ 7,990</span></p>
+                     <p>Caldo<span class="price">$ 2,300</span></p>
+    
+                </div>
         </div>
     </section>
+    
 
     <footer>
          <p>Síguenos en <a href="https://www.instagram.com/pez_calugon?igsh=YzljYTk1ODg3Zg==" target="_blank" rel="noopener noreferrer"><img src="ig.png" alt=""></a></p> </br>
         <p>Pez Calugon &copy; 2024</p>
     </footer>
+<div id="video-container">
+    <video autoplay loop muted playsinline>
+        <source src="Menucalugon.mp4" type="video/mp4">
+        Tu navegador no soporta videos HTML5.
+    </video>
+</div>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -197,12 +278,34 @@ url('fondo.jpg') no-repeat center center fixed;
                     if (expanded && expanded !== category) {
                         expanded.classList.remove('expanded');
                     }
+document.addEventListener("DOMContentLoaded", () => {
+        const videoContainer = document.getElementById("video-container");
+        const video = videoContainer.querySelector("video");
 
+        // Revisa el tamaño de la ventana al cargar
+        if (window.innerWidth >= 880) {
+            video.play();
+        }
+
+        // Ajusta según cambios de tamaño de ventana
+        window.addEventListener("resize", () => {
+            if (window.innerWidth >= 880) {
+                videoContainer.style.display = "block";
+                video.play();
+            } else {
+                videoContainer.style.display = "none";
+                video.pause();
+            }
+        });
+    });
                     // Expandimos o contraemos la categoría actual
                     category.classList.toggle('expanded');
                 });
             });
         });
+
+      
+
 
     </script>
     
@@ -210,4 +313,3 @@ url('fondo.jpg') no-repeat center center fixed;
 
 
     </html>
-                
